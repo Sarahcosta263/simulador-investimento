@@ -21,7 +21,8 @@ Este é um projeto de um **simulador interativo de investimentos** desenvolvido 
 
 Você pode visualizar o projeto online através do GitHub Pages:
 
-> [https://sarahcosta263.github.io/simulador-investimento/](https://sarahcosta263.github.io/simulador-investimento/)
+>
+[https://sarahcosta263.github.io/simulador-investimento/](https://sarahcosta263.github.io/simulador-investimento/) 
 
 ### **Como usar**
 
