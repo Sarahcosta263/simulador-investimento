@@ -17,12 +17,9 @@ Este é um projeto de um **simulador interativo de investimentos** desenvolvido 
 - CSS3
 - JavaScript (ES6)
 
-### **Acesso ao projeto**
+## Você pode visualizar o projeto online através do GitHub Pages:
 
-Você pode visualizar o projeto online através do GitHub Pages:
-
->
-https://sarahcosta263.github.io/simulador-investimento/
+[https://sarahcosta263.github.io/simulador-investimento/](https://sarahcosta263.github.io/simulador-investimento/)
 
 ### **Como usar**
 
