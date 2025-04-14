@@ -1,36 +1,41 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Simulador de Investimentos</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simulador de Investimento</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
   <div class="container">
-    <header>
-      <h1>Simulador de Investimentos</h1>
-      <p>Descubra quanto seu dinheiro pode render!</p>
-    </header>
-    
-    <form id="form-investimento">
-      <div class="campo">
-        <label for="valor">Valor Inicial (R$):</label>
-        <input type="number" id="valor" required />
-      </div>
-      
-      <div class="campo">
-        <label for="prazo">Prazo (em meses):</label>
-        <input type="number" id="prazo" required />
-      </div>
+    <h1>Simulador de Investimento</h1>
+    <form id="investment-form">
+      <label for="initial">Valor Inicial (R$)</label>
+      <input type="number" id="initial" required>
 
-      <button type="submit">Simular</button>
+      <label for="monthly">Aporte Mensal (R$)</label>
+      <input type="number" id="monthly" required>
+
+      <label for="rate">Taxa de Juros Mensal (%)</label>
+      <input type="number" step="0.01" id="rate" required>
+
+      <label for="months">Prazo (meses)</label>
+      <input type="number" id="months" required>
+
+      <button type="submit">Calcular</button>
     </form>
 
-    <section id="resultado">
-      <!-- Resultado será exibido aqui -->
-    </section>
+    <div class="results">
+      <h2>Resultado</h2>
+      <p><strong>Valor Final:</strong> R$ <span id="final-amount">0.00</span></p>
+      <p><strong>Total Investido:</strong> R$ <span id="total-invested">0.00</span></p>
+      <p><strong>Juros Ganhos:</strong> R$ <span id="total-interest">0.00</span></p>
+    </div>
+
+    <canvas id="chart" width="400" height="200"></canvas>
   </div>
+  
   <script src="script.js"></script>
 </body>
 </html>
