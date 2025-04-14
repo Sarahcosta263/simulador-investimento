@@ -1,42 +1,28 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Simulador de Investimento</title>
-  <link rel="stylesheet" href="style.css">
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="container">
+  <main class="container">
     <h1>Simulador de Investimento</h1>
-    <form id="investment-form">
-      <label for="initial">Valor Inicial (R$)</label>
-      <input type="number" id="initial" required>
+    <form id="simulatorForm">
+      <label for="valor">Valor Inicial (R$):</label>
+      <input type="number" id="valor" required />
 
-      <label for="monthly">Aporte Mensal (R$)</label>
-      <input type="number" id="monthly" required>
+      <label for="prazo">Prazo (meses):</label>
+      <input type="number" id="prazo" required />
 
-      <label for="rate">Taxa de Juros Mensal (%)</label>
-      <input type="number" step="0.01" id="rate" required>
-
-      <label for="months">Prazo (meses)</label>
-      <input type="number" id="months" required>
-
-      <button type="submit">Calcular</button>
-    </form> 
-
-    <div class="results">
-      <h2>Resultado</h2>
-      <p><strong>Valor Final:</strong> R$ <span id="final-amount">0.00</span></p>
-      <p><strong>Total Investido:</strong> R$ <span id="total-invested">0.00</span></p>
-      <p><strong>Juros Ganhos:</strong> R$ <span id="total-interest">0.00</span></p>
-    </div>
-
-    <canvas id="chart" width="400" height="200"></canvas>
-  </div>
-  
+      <button type="submit">Simular</button>
+    </form>
+    <div id="resultado" class="resultado"></div>
+  </main>
+  <footer>
+    <p>&copy; 2025 - Desenvolvido por Sarah Costa</p>
+  </footer>
   <script src="script.js"></script>
-  
 </body>
 </html>
