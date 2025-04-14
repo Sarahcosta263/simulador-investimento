@@ -1,33 +1,57 @@
-document.addEventListener("DOMContentLoaded", function () {
-  const form = document.getElementById("simulador-form");
-  const resultado = document.getElementById("resultado");
+document.getElementById('investment-form').addEventListener('submit', function(e) {
+  e.preventDefault();
 
-  form.addEventListener("submit", function (e) {
-    e.preventDefault();
+  const initial = parseFloat(document.getElementById('initial').value);
+  const monthly = parseFloat(document.getElementById('monthly').value);
+  const rate = parseFloat(document.getElementById('rate').value) / 100;
+  const months = parseInt(document.getElementById('months').value);
 
-    const valorInicial = parseFloat(document.getElementById("valor").value);
-    const prazo = parseInt(document.getElementById("prazo").value);
-    const taxaMensal = 0.01; // 1% ao mês
+  let total = initial;
+  let invested = initial;
+  const labels = [];
+  const data = [];
 
-    if (isNaN(valorInicial) || isNaN(prazo) || valorInicial <= 0 || prazo <= 0) {
-      resultado.innerHTML = `
-        <div class="erro">Preencha todos os campos corretamente.</div>
-      `;
-      return;
-    }
+  for (let i = 1; i <= months; i++) {
+    total = (total + monthly) * (1 + rate);
+    invested += monthly;
+    labels.push(`Mês ${i}`);
+    data.push(total.toFixed(2));
+  }
 
-    let valorFinal = valorInicial * Math.pow((1 + taxaMensal), prazo);
-    let ganho = valorFinal - valorInicial;
+  const interest = total - invested;
 
-    resultado.innerHTML = `
-      <div class="resultado-box">
-        <h3>Resultado da Simulação</h3>
-        <p><strong>Valor investido:</strong> R$ ${valorInicial.toFixed(2)}</p>
-        <p><strong>Valor final:</strong> R$ ${valorFinal.toFixed(2)}</p>
-        <p><strong>Ganho:</strong> R$ ${ganho.toFixed(2)}</p>
-      </div>
-    `;
+  document.getElementById('final-amount').innerText = total.toFixed(2);
+  document.getElementById('total-invested').innerText = invested.toFixed(2);
+  document.getElementById('total-interest').innerText = interest.toFixed(2);
 
-    resultado.scrollIntoView({ behavior: "smooth" });
-  });
+  renderChart(labels, data);
 });
+
+let chartInstance = null;
+function renderChart(labels, data) {
+  const ctx = document.getElementById('chart').getContext('2d');
+  if (chartInstance) chartInstance.destroy();
+  chartInstance = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: labels,
+      datasets: [{
+        label: 'Evolução do Investimento',
+        data: data,
+        borderColor: '#27ae60',
+        backgroundColor: 'rgba(39, 174, 96, 0.2)',
+        borderWidth: 2,
+        fill: true,
+        tension: 0.3
+      }]
+    },
+    options: {
+      responsive: true,
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+}
