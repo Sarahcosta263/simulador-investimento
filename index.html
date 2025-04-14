@@ -1,41 +1,36 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Simulador de Investimento</title>
+  <title>Simulador de Investimentos</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header>
-    <h1>Simulador de Investimento</h1>
-    <p>Descubra quanto seu dinheiro pode render!</p>
-  </header>
+  <div class="container">
+    <header>
+      <h1>Simulador de Investimentos</h1>
+      <p>Descubra quanto seu dinheiro pode render!</p>
+    </header>
+    
+    <form id="form-investimento">
+      <div class="campo">
+        <label for="valor">Valor Inicial (R$):</label>
+        <input type="number" id="valor" required />
+      </div>
+      
+      <div class="campo">
+        <label for="prazo">Prazo (em meses):</label>
+        <input type="number" id="prazo" required />
+      </div>
 
-  <main>
-    <section class="container">
-      <form id="simulador-form">
-        <div class="form-group">
-          <label for="valor">Valor Inicial (R$):</label>
-          <input type="number" id="valor" placeholder="Ex: 1000" required />
-        </div>
+      <button type="submit">Simular</button>
+    </form>
 
-        <div class="form-group">
-          <label for="prazo">Prazo (meses):</label>
-          <input type="number" id="prazo" placeholder="Ex: 12" required />
-        </div>
-
-        <button type="submit">Simular</button>
-      </form>
-
-      <div id="resultado"></div>
+    <section id="resultado">
+      <!-- Resultado será exibido aqui -->
     </section>
-  </main>
-
-  <footer>
-    <p>&copy; 2025 Sarah Costa | Projeto Portfólio</p>
-  </footer>
-
+  </div>
   <script src="script.js"></script>
 </body>
 </html>
